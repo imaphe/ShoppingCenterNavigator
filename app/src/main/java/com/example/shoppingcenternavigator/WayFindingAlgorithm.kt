@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.LinearEasing
-import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -21,7 +20,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -35,11 +33,10 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.example.shoppingcenternavigator.ui.theme.blueHosta
 import com.example.shoppingcenternavigator.ui.theme.caribbeanCurrent
-import com.example.shoppingcenternavigator.ui.theme.moonstone
 import kotlinx.coroutines.delay
 import java.util.*
 import kotlin.math.sqrt
@@ -130,7 +127,7 @@ fun calculateDistance(point1: Point, point2: Point): Float {
 fun WayFindingAlgorithm() {
     Box(
         modifier = Modifier
-            .background(colorResource(id = R.color.isabelline))
+            .background(Color.White)
             .fillMaxSize()
     ) {
 
@@ -790,7 +787,7 @@ fun WayFindingAlgorithm() {
 
 
                             drawCircle(
-                                moonstone,
+                                blueHosta,
                                 radius = iconSize / 4,
                                 center = Offset(startX, startY)
                             )
@@ -1077,7 +1074,7 @@ fun WayFindingAlgorithm() {
                                     drawPath(path, caribbeanCurrent, style = Stroke(4.dp.toPx()))
 
                                     drawCircle(
-                                        moonstone,
+                                        blueHosta,
                                         radius = iconSize / 4,
                                         center = Offset(startX, startY)
                                     )
@@ -1117,7 +1114,7 @@ fun WayFindingAlgorithm() {
                                     drawPath(path, caribbeanCurrent, style = Stroke(4.dp.toPx()))
 
                                     drawCircle(
-                                        moonstone,
+                                        blueHosta,
                                         radius = iconSize / 4,
                                         center = Offset(
                                             startStair.x * generateSize(coordinateSystem, size)[0],
@@ -1375,7 +1372,7 @@ fun WayFindingAlgorithm() {
                                     drawPath(path, caribbeanCurrent, style = Stroke(4.dp.toPx()))
 
                                     drawCircle(
-                                        moonstone,
+                                        blueHosta,
                                         radius = iconSize / 4,
                                         center = Offset(startX, startY)
                                     )
@@ -1414,7 +1411,7 @@ fun WayFindingAlgorithm() {
                                     drawPath(path, caribbeanCurrent, style = Stroke(4.dp.toPx()))
 
                                     drawCircle(
-                                        moonstone,
+                                        blueHosta,
                                         radius = iconSize / 4,
                                         center = Offset(
                                             startStair.x * generateSize(coordinateSystem, size)[0],

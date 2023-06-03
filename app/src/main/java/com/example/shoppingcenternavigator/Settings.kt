@@ -20,7 +20,6 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
-import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.rememberScaffoldState
@@ -33,11 +32,9 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterVertically
-import androidx.compose.ui.Alignment.Companion.Start
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -67,8 +64,8 @@ fun Settings(navController: NavController, selectedItem: MutableState<Int>, cont
         snackbarHost = {
             SnackbarHost(it) {
                 Snackbar(
-                    backgroundColor = colorResource(id = R.color.orangePeel),
-                    contentColor = colorResource(id = R.color.isabelline),
+                    backgroundColor = wineBerry,
+                    contentColor = Color.White,
                     snackbarData = it
                 )
             }
@@ -196,7 +193,7 @@ fun Settings(navController: NavController, selectedItem: MutableState<Int>, cont
                                     AlertDialog(
                                         onDismissRequest = { alertDialog.value = false },
                                         text = { Text(text = "Çıkış yapmak istediğinize emin misiniz?",
-                                            color = colorResource(id = R.color.isabelline), fontSize = 18.sp) },
+                                            color = Color.White, fontSize = 18.sp) },
                                         confirmButton = {
                                             Text(text = "Hayır",
                                                 modifier = Modifier
@@ -204,7 +201,7 @@ fun Settings(navController: NavController, selectedItem: MutableState<Int>, cont
                                                     .clickable {
                                                         alertDialog.value = false
                                                     },
-                                                color = colorResource(id = R.color.isabelline))},
+                                                color = Color.White)},
                                         dismissButton = {
                                             Text(text = "Evet",
                                                 modifier = Modifier
@@ -213,10 +210,10 @@ fun Settings(navController: NavController, selectedItem: MutableState<Int>, cont
                                                         auth.signOut()
                                                         navController.navigate("LoginPage")
                                                     },
-                                                color = colorResource(id = R.color.isabelline))
+                                                color = Color.White)
 
                                         },
-                                        backgroundColor = colorResource(id = R.color.caribbeanCurrent)
+                                        backgroundColor = wineBerry
                                     )
                                 }
                                 Icon(painter = painterResource(id = R.drawable.logout), contentDescription = "", modifier = Modifier.padding(top = 2.dp, end = 12.dp), tint = Color.White)

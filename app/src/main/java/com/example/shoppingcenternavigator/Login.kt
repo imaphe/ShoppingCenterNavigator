@@ -57,8 +57,8 @@ fun Login(context: ComponentActivity, navController: NavController) {
         snackbarHost = {
             SnackbarHost(it) {
                 Snackbar(
-                    backgroundColor = colorResource(id = R.color.orangePeel),
-                    contentColor = colorResource(id = R.color.isabelline),
+                    backgroundColor = wineBerry,
+                    contentColor = Color.White,
                     snackbarData = it
                 )
             }

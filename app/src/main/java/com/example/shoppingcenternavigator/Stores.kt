@@ -6,16 +6,15 @@ import androidx.compose.material.AlertDialog
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.shoppingcenternavigator.ui.theme.purplishPink
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -39,7 +38,7 @@ fun Stores(selectedItem: MutableState<Int>){
         AlertDialog(
             onDismissRequest = { alertDialog.value = false },
             text = { Text(text = "Mağazaya yol tarifi almak ister misiniz?",
-                color = colorResource(id = R.color.isabelline), fontSize = 18.sp) },
+                color = Color.White, fontSize = 18.sp) },
             confirmButton = {
                 Text(text = "Hayır",
                     modifier = Modifier
@@ -47,7 +46,7 @@ fun Stores(selectedItem: MutableState<Int>){
                         .clickable {
                             alertDialog.value = false
                         },
-                    color = colorResource(id = R.color.isabelline)
+                    color = Color.White
                 )
             },
             dismissButton = {
@@ -57,11 +56,11 @@ fun Stores(selectedItem: MutableState<Int>){
                         .clickable {
                             selectedItem.value = 0
                         },
-                    color = colorResource(id = R.color.isabelline)
+                    color = Color.White
                 )
 
             },
-            backgroundColor = colorResource(id = R.color.caribbeanCurrent)
+            backgroundColor = purplishPink
         )
     }
 

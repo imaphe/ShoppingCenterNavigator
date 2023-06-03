@@ -33,14 +33,12 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.shoppingcenternavigator.ui.theme.caribbeanCurrent
 import com.example.shoppingcenternavigator.ui.theme.skyBlue
 import com.example.shoppingcenternavigator.ui.theme.wineBerry
 import java.util.Locale
@@ -304,13 +302,14 @@ fun StoreSearchBar(
                 searchQuery = query
                 onSearch(query)
             },
-            placeholder = { Text("Ara", color = caribbeanCurrent) },
+            placeholder = { Text(stringResource(id = R.string.searchStoreButton), color = wineBerry) },
             colors = TextFieldDefaults.textFieldColors(
                 backgroundColor = Color.Transparent,
-                disabledTextColor = Color.Black,
-                cursorColor = colorResource(id = R.color.caribbeanCurrent),
-                unfocusedIndicatorColor = colorResource(id = R.color.caribbeanCurrent),
-                focusedIndicatorColor = colorResource(id = R.color.caribbeanCurrent)
+                disabledTextColor = Color.White,
+                cursorColor = wineBerry,
+                unfocusedIndicatorColor = wineBerry,
+                focusedIndicatorColor = wineBerry,
+                textColor = Color.White
             ),
             modifier = Modifier
                 .fillMaxWidth()

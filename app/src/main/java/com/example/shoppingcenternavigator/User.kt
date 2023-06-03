@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -20,7 +19,6 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -28,7 +26,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -86,7 +83,7 @@ fun User(navController: NavController,selectedItem: MutableState<Int>) {
                     AlertDialog(
                         onDismissRequest = { alertDialog.value = false },
                         text = { Text(text = "Çıkış yapmak istediğinize emin misiniz?",
-                            color = colorResource(id = R.color.isabelline), fontSize = 18.sp) },
+                            color = Color.White, fontSize = 18.sp) },
                         confirmButton = {
                             Text(text = "Hayır",
                                 modifier = Modifier
@@ -94,7 +91,7 @@ fun User(navController: NavController,selectedItem: MutableState<Int>) {
                                     .clickable {
                                         alertDialog.value = false
                                     },
-                                color = colorResource(id = R.color.isabelline))},
+                                color = Color.White)},
                         dismissButton = {
                             Text(text = "Evet",
                                 modifier = Modifier
@@ -103,10 +100,10 @@ fun User(navController: NavController,selectedItem: MutableState<Int>) {
                                         auth.signOut()
                                         navController.navigate("LoginPage")
                                     },
-                                color = colorResource(id = R.color.isabelline))
+                                color = Color.White)
 
                         },
-                        backgroundColor = colorResource(id = R.color.caribbeanCurrent)
+                        backgroundColor = wineBerry
                     )
                 }
                 Button(onClick = {
@@ -114,7 +111,7 @@ fun User(navController: NavController,selectedItem: MutableState<Int>) {
                 },
                     Modifier.size(200.dp,50.dp),
                     colors = ButtonDefaults.buttonColors(
-                        backgroundColor = colorResource(id = R.color.orangePeel)
+                        backgroundColor = wineBerry
                     )) {
                     Text(text = "Çıkış Yap", color = Color.White)
                 }

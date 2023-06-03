@@ -28,13 +28,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.shoppingcenternavigator.R
-import com.example.shoppingcenternavigator.ui.theme.caribbeanCurrent
+import com.example.shoppingcenternavigator.ui.theme.wineBerry
 
 @Composable
 fun SearchBar(
@@ -59,13 +58,14 @@ fun SearchBar(
                 searchQuery = query
                 onSearch(query)
             },
-            placeholder = { Text("Ara", color = Color.White) },
+            placeholder = { Text("Ara", color = wineBerry) },
             colors = TextFieldDefaults.textFieldColors(
                 backgroundColor = Color.Transparent,
-                disabledTextColor = Color.Black,
-                cursorColor = colorResource(id = R.color.caribbeanCurrent),
-                unfocusedIndicatorColor = colorResource(id = R.color.caribbeanCurrent),
-                focusedIndicatorColor = colorResource(id = R.color.caribbeanCurrent)
+                disabledTextColor = Color.White,
+                cursorColor = Color.White,
+                unfocusedIndicatorColor = wineBerry,
+                focusedIndicatorColor = Color.White,
+                textColor = Color.White
             ),
             modifier = Modifier
                 .fillMaxWidth()
