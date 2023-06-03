@@ -1,24 +1,31 @@
 package com.example.shoppingcenternavigator
 
+import android.content.pm.ActivityInfo
 import android.os.Build
 import androidx.annotation.RequiresApi
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.shoppingcenternavigator.ui.theme.blueHosta
+import com.example.shoppingcenternavigator.ui.theme.purplishPink
 import com.example.shoppingcenternavigator.ui.theme.wineBerry
 
 
@@ -39,7 +46,9 @@ fun MainPage(navController: NavController) {
             Surface (modifier = Modifier.fillMaxSize()){
                 VerticalGradient()
             }
-            Box(modifier = Modifier.fillMaxSize().padding(bottom = 56.dp)) {
+            Box(modifier = Modifier
+                .fillMaxSize()
+                .padding(bottom = 56.dp)) {
                 // Add the Modifier.padding modifier with bottom padding of 56.dp
                 // to the Box composable that wraps the content
 
@@ -65,7 +74,7 @@ fun MainPage(navController: NavController) {
                             AlertDialog(
                                 onDismissRequest = { alertDialog.value = false },
                                 text = { Text(text = stringResource(id = R.string.chooseMallErrorMessage),
-                                    color = Color.White, fontSize = 18.sp) },
+                                    color = wineBerry, fontSize = 18.sp) },
                                 confirmButton = { Text(text = stringResource(id = R.string.confirmButton),
                                     modifier = Modifier
                                         .padding(10.dp)
@@ -73,25 +82,21 @@ fun MainPage(navController: NavController) {
                                             alertDialog.value = false
                                             selectedItem.value = 0
                                         },
-                                    color =Color.White)},
-                                backgroundColor = wineBerry
+                                    color = wineBerry)},
+                                backgroundColor = Color.White
                             )
                         }
                         alertDialog.value = true
                     }
                     else{
-                        Stores(selectedItem = selectedItem)
+                        Stores(selectedItem = selectedItem, navController)
                     }
-                }
-                if (selectedItem.value == 3){
-                    FloorPlans(selectedItem)
-
                 }
                 if (selectedItem.value == 4){
                     Settings(navController = navController, selectedItem, LocalContext.current)
                 }
                 if (selectedItem.value == 5){
-                    User(navController = navController, selectedItem)
+                    FloorPlans(selectedItem)
                 }
                 if (selectedItem.value == 6){
                     FAQPage(selectedItem)
@@ -167,6 +172,7 @@ fun MainPage(navController: NavController) {
                     }
                 }
             )
-        }
+        }//,
+        //backgroundColor = colorResource(id = R.color.isabelline)
     )
 }

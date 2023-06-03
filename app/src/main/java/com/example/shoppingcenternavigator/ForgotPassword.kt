@@ -21,6 +21,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.shoppingcenternavigator.ui.theme.purplishPink
 import com.example.shoppingcenternavigator.ui.theme.wineBerry
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -48,8 +49,8 @@ fun ForgotPassword(context: ComponentActivity, navController: NavController) {
         snackbarHost = {
             SnackbarHost(it) {
                 Snackbar(
-                    backgroundColor = wineBerry,
-                    contentColor = Color.White,
+                    backgroundColor = Color.White,
+                    contentColor = wineBerry,
                     snackbarData = it
                 )
             }

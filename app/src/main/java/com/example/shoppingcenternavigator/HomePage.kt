@@ -15,20 +15,21 @@ import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun HomePage(selectedItem: MutableState<Int>){
+
     val keyboardController = LocalSoftwareKeyboardController.current
 
-    var selectedBoxIndex by remember { mutableStateOf(-1) }
+    var selectedBoxName by remember { mutableStateOf("") }
 
-    SearchBar(variables = malls, onSearch = { searchQuery ->
+    SearchBar(variables = malls, onSearch = {
         // Handle search query
         // Perform the desired search operation
-    }, onBoxClick = { clickedIndex ->
-        selectedBoxIndex = clickedIndex
-        if(selectedBoxIndex == 0){
+    }, onBoxClick = { clickedName ->
+        selectedBoxName = clickedName
+        if(selectedBoxName == "Carousel"){
             SelectedShops.selectedMall = 0
             selectedItem.value = 0
         }
-        else if(selectedBoxIndex == 1){
+        else if(selectedBoxName == "Capacity"){
             SelectedShops.selectedMall = 1
             selectedItem.value = 0
         }

@@ -33,12 +33,15 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import com.example.shoppingcenternavigator.ui.theme.caribbeanCurrent
 import com.example.shoppingcenternavigator.ui.theme.skyBlue
 import com.example.shoppingcenternavigator.ui.theme.wineBerry
 import java.util.Locale
@@ -302,14 +305,12 @@ fun StoreSearchBar(
                 searchQuery = query
                 onSearch(query)
             },
-            placeholder = { Text(stringResource(id = R.string.searchStoreButton), color = wineBerry) },
+            placeholder = { Text("Ara", color = wineBerry) },
             colors = TextFieldDefaults.textFieldColors(
                 backgroundColor = Color.Transparent,
-                disabledTextColor = Color.White,
                 cursorColor = wineBerry,
                 unfocusedIndicatorColor = wineBerry,
-                focusedIndicatorColor = wineBerry,
-                textColor = Color.White
+                focusedIndicatorColor = wineBerry
             ),
             modifier = Modifier
                 .fillMaxWidth()
@@ -319,7 +320,7 @@ fun StoreSearchBar(
         Row(Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center) {
-            OutlinedButton(onClick = { selectedItem.value = 3 },
+            OutlinedButton(onClick = { selectedItem.value = 5 },
                 colors = ButtonDefaults.buttonColors(backgroundColor = skyBlue.copy(alpha = 0.25f),
                     contentColor = wineBerry)) {
                 Text(text = stringResource(id = R.string.floorPlans))

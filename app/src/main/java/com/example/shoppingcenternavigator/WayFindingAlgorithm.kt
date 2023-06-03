@@ -39,8 +39,8 @@ import com.example.shoppingcenternavigator.ui.theme.blueHosta
 import com.example.shoppingcenternavigator.ui.theme.caribbeanCurrent
 import kotlinx.coroutines.delay
 import java.util.*
-import kotlin.math.sqrt
 import kotlin.math.pow
+import kotlin.math.sqrt
 
 @RequiresApi(Build.VERSION_CODES.N)
 fun dijkstraAlgorithm(start: Point, destination: Point): List<Point> {

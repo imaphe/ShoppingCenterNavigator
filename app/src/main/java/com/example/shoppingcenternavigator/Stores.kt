@@ -14,11 +14,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.shoppingcenternavigator.ui.theme.purplishPink
+import androidx.navigation.NavController
+import com.example.shoppingcenternavigator.ui.theme.wineBerry
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
-fun Stores(selectedItem: MutableState<Int>){
+fun Stores(selectedItem: MutableState<Int>, navController: NavController){
     val keyboardController = LocalSoftwareKeyboardController.current
 
     var xShop = carouselShops
@@ -38,7 +39,7 @@ fun Stores(selectedItem: MutableState<Int>){
         AlertDialog(
             onDismissRequest = { alertDialog.value = false },
             text = { Text(text = "Mağazaya yol tarifi almak ister misiniz?",
-                color = Color.White, fontSize = 18.sp) },
+                color = wineBerry, fontSize = 18.sp) },
             confirmButton = {
                 Text(text = "Hayır",
                     modifier = Modifier
@@ -46,7 +47,7 @@ fun Stores(selectedItem: MutableState<Int>){
                         .clickable {
                             alertDialog.value = false
                         },
-                    color = Color.White
+                    color = wineBerry
                 )
             },
             dismissButton = {
@@ -55,12 +56,13 @@ fun Stores(selectedItem: MutableState<Int>){
                         .padding(10.dp)
                         .clickable {
                             selectedItem.value = 0
+
                         },
-                    color = Color.White
+                    color = wineBerry
                 )
 
             },
-            backgroundColor = purplishPink
+            backgroundColor = Color.White
         )
     }
 
@@ -68,9 +70,9 @@ fun Stores(selectedItem: MutableState<Int>){
         // Handle search query
         // Perform the desired search operation
     }, onBoxClick = { clickedName ->
+        alertDialog.value = true
         val shopFromBoxNameIndex= xShop.indexOfFirst { it.Name == clickedName }
         SelectedShops.selectedStoreFromStores = xShop[shopFromBoxNameIndex].Name
-        alertDialog.value = true
 
         keyboardController?.hide()
 

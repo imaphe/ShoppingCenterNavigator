@@ -20,6 +20,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.rememberScaffoldState
@@ -32,13 +33,16 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterVertically
+import androidx.compose.ui.Alignment.Companion.Start
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.shoppingcenternavigator.ui.theme.purplishPink
 import com.example.shoppingcenternavigator.ui.theme.wineBerry
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -64,8 +68,8 @@ fun Settings(navController: NavController, selectedItem: MutableState<Int>, cont
         snackbarHost = {
             SnackbarHost(it) {
                 Snackbar(
-                    backgroundColor = wineBerry,
-                    contentColor = Color.White,
+                    backgroundColor = Color.White,
+                    contentColor = wineBerry,
                     snackbarData = it
                 )
             }
@@ -193,7 +197,7 @@ fun Settings(navController: NavController, selectedItem: MutableState<Int>, cont
                                     AlertDialog(
                                         onDismissRequest = { alertDialog.value = false },
                                         text = { Text(text = "Çıkış yapmak istediğinize emin misiniz?",
-                                            color = Color.White, fontSize = 18.sp) },
+                                            color = wineBerry, fontSize = 18.sp) },
                                         confirmButton = {
                                             Text(text = "Hayır",
                                                 modifier = Modifier
@@ -201,7 +205,7 @@ fun Settings(navController: NavController, selectedItem: MutableState<Int>, cont
                                                     .clickable {
                                                         alertDialog.value = false
                                                     },
-                                                color = Color.White)},
+                                                color = wineBerry)},
                                         dismissButton = {
                                             Text(text = "Evet",
                                                 modifier = Modifier
@@ -210,10 +214,8 @@ fun Settings(navController: NavController, selectedItem: MutableState<Int>, cont
                                                         auth.signOut()
                                                         navController.navigate("LoginPage")
                                                     },
-                                                color = Color.White)
-
-                                        },
-                                        backgroundColor = wineBerry
+                                                color = wineBerry)},
+                                        backgroundColor = Color.White
                                     )
                                 }
                                 Icon(painter = painterResource(id = R.drawable.logout), contentDescription = "", modifier = Modifier.padding(top = 2.dp, end = 12.dp), tint = Color.White)
@@ -221,7 +223,6 @@ fun Settings(navController: NavController, selectedItem: MutableState<Int>, cont
                                 Spacer(modifier = Modifier.weight(1f))
                             }
                             Divider(color = wineBerry)
-
                         }
                 }
         }
