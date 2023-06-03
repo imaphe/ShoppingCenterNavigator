@@ -125,11 +125,14 @@ fun Login(context: ComponentActivity, navController: NavController) {
                     }
                 )
 
-                Text(text = "Şifreni mi unuttun?", color = Color.White, modifier = Modifier.align(
-                    Alignment.End
-                ).padding(end = 24.dp).clickable {
-                    navController.navigate("ForgotPasswordPage")
-                })
+                Text(text = stringResource(id = R.string.forgotPasswordButton), color = Color.White, modifier = Modifier
+                    .align(
+                        Alignment.End
+                    )
+                    .padding(end = 24.dp)
+                    .clickable {
+                        navController.navigate("ForgotPasswordPage")
+                    })
 
                 Box(modifier = Modifier.fillMaxWidth()) {
                     Button(
@@ -179,7 +182,7 @@ fun Login(context: ComponentActivity, navController: NavController) {
                         navController.navigate("RegisterPage")
                         keyboardController?.hide()
                     }) {
-                        Text(stringResource(id = R.string.registerButton), color = colorResource(id = R.color.white))
+                        Text(stringResource(id = R.string.registerText), color = colorResource(id = R.color.white))
                     }
                 }
             }

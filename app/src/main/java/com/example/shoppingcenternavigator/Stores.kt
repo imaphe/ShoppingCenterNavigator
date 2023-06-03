@@ -12,6 +12,7 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -38,10 +39,10 @@ fun Stores(selectedItem: MutableState<Int>, navController: NavController){
     if (alertDialog.value){
         AlertDialog(
             onDismissRequest = { alertDialog.value = false },
-            text = { Text(text = "Mağazaya yol tarifi almak ister misiniz?",
+            text = { Text(text = stringResource(id = R.string.getRouteToStoreText),
                 color = wineBerry, fontSize = 18.sp) },
             confirmButton = {
-                Text(text = "Hayır",
+                Text(text = stringResource(id = R.string.noText),
                     modifier = Modifier
                         .padding(10.dp)
                         .clickable {
@@ -51,7 +52,7 @@ fun Stores(selectedItem: MutableState<Int>, navController: NavController){
                 )
             },
             dismissButton = {
-                Text(text = "Evet",
+                Text(text = stringResource(id = R.string.yesText),
                     modifier = Modifier
                         .padding(10.dp)
                         .clickable {

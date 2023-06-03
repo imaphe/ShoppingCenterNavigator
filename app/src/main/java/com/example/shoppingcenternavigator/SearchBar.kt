@@ -30,6 +30,7 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -60,7 +61,7 @@ fun SearchBar(
                 searchQuery = query
                 onSearch(query)
             },
-            placeholder = { Text("Ara", color = wineBerry) },
+            placeholder = { Text(stringResource(id = R.string.searchStoreButton), color = wineBerry) },
             colors = TextFieldDefaults.textFieldColors(
                 backgroundColor = Color.Transparent,
                 cursorColor = wineBerry,
@@ -123,7 +124,8 @@ fun SearchBar(
                                         painter = backgroundPainter,
                                         contentDescription = null,
                                         contentScale = ContentScale.Crop,
-                                        modifier = Modifier.fillMaxSize()
+                                        modifier = Modifier
+                                            .fillMaxSize()
                                             .alpha(0.675f)
                                     )
                                 }
